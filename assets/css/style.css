@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* 2 cái đầu là đọc font , thằNg cuối cùng chủng font lấy ko chân */
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.trang {
+    color: red;
+}
+
+
+/* 1 từ ngoài vào trong
+ 2 từ trên xuống dưới
+ 3 tổng quan đến chi tiết */
+
+
+/* 1vị trí
+ 2 kích thước
+ 3 màu sắc 
+ 4 kiểu dáng (kiểu chữ,hình tròn,vuông..) */
+
+
+/* clear giúp bao chùm thẻ con khi làm cha */
+
+.clear {
+    clear: both;
+}
+
+#main {
+    height: 4500px;
+}
+
+
+/* 11111111111111111 */
+
+#header {
+    /* dùng fixed để bám dính phần đầu kéo thả vẫn giữ */
+    /* fixed: ăn theo màn hình trục toạ độ */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* width tự cho 100% ròi */
+    height: 46px;
+    background-color: #000;
+    z-index: 1;
+}
+
+#nav {
+    display: inline-block;
+}
+
+#nav,
+.subnav {
+    list-style-type: none;
+}
+
+#nav>li {
+    /* inline-block kế thừa kích thước từ thẻ cha 
+    và tạo ra các khối căn theo ngang*/
+    display: inline-block;
+}
+
+#nav li {
+    /* inline có nghĩa là trên 1 hàng block là tạo ra khối */
+    position: relative;
+}
+
+#nav>li>a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#nav li a {
+    text-decoration: none;
+    /* căn giữa bằng line-height theo height màu của chiềU dọc */
+    line-height: 46px;
+    padding: 0 24px;
+    display: inline-block;
+}
+
+
+/* block mạnh hơn none tạo ra ẩn hiện cha con  */
+
+
+/* block tạo khối dọc */
+
+#nav li:hover .subnav {
+    display: block;
+}
+
+
+/* hover vào li giúp cả thẻ con cùng được dùng còn cho vào a thì mất*/
+
+
+/* #nav .subnav li:hover, */
+
+#nav>li:hover>a {
+    color: #000;
+    background-color: #ccc;
+    /* thẻ a chứa display:inline ko ăn được kích chiều rộng và cc */
+}
+
+#nav .subnav {
+    display: none;
+    min-width: 160px;
+    /* toạ độ kế thừa trục XoY */
+    position: absolute;
+    /* mặc định top left để cố định lại vị trí  */
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 15px;
+    /* đổ bóng khi trùng màu vẫn thấy  */
+    /* (đổ bóng sang ox , đổ xuống trục oy ,10px độ lan toả */
+    box-shadow: 0 0 20px rgba(120, 33, 22, 0.9);
+}
+
+#nav .subnav a {
+    color: #000;
+    padding: 0 12px;
+}
+
+#nav .subnav li:hover {
+    color: #000;
+    background-color: #ccc;
+    display: block;
+}
+
+
+/* #nav .nav-angle-down {
+    font-size: 16px;
+} */
+
+#header .search-btn {
+    float: right;
+    line-height: 46px;
+    padding: 0 12px;
+    font-size: 20px;
+    color: #fff;
+}
+
+#header .search-btn:hover {
+    background-color: brown;
+    /* thay đổi chuột khi thay vào */
+    cursor: pointer;
+    /*  opacity độ mờ */
+    opacity: 0.85;
+}
+
+#header .search-icon {
+    font-size: 20px;
+    color: blue;
+    line-height: 46px;
+}
+
+
+/* 2222222222222222222222222222222 */
+
+#slider {
+    position: relative;
+    /* tách biệt header */
+    margin-top: 46px;
+    /* đặt % tỉ lệ thì nó sẽ lấy chiều ngang/2=chiều dọc */
+    padding-top: 50%;
+    /* dùng để dẫn đuôi / tiếp theo của web */
+    font-size: 62.5%;
+    background: url(https://photo-cms-bizlive.epicdn.me/w950/Uploaded/2023/wagtjt/2022_09_07/a6-9441.png) top center /cover no-repeat;
+}
+
+#slider .text-content {
+    position: absolute;
+    bottom: 20px;
+    /* căn giữa */
+    /* left: 50%;
+    transform: translateX(-50%); */
+    /* width: 100%; */
+    left: 0;
+    right: 0;
+    color: rgb(210, 195, 195);
+}
+
+#slider .text-heading {
+    text-align: center;
+    margin-top: 0 10px;
+    font-weight: 700;
+}
+
+#slider .text-description {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+
+/* phần 333333333 */
+
+#content {
+    height: 2150px;
+    background-color: #333;
+}
+
+#content .content-section {
+    padding: 64px 0;
+    margin: 0 150px;
+    font-size: 16px;
+    height: 700px;
+    background: #ccc;
+}
+
+#content .section-heading {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#content .section-sub-heading {
+    text-align: center;
+    margin: 15px 0;
+    opacity: 0.76;
+    font-style: italic;
+}
+
+#content .about-text {
+    text-align: center;
+    text-align: justify;
+    /* tách khoảng cách chữ ra tiếNg anh 1.4 , viet 1.6 */
+    line-height: 1.6;
+    margin: 0 96px;
+}
+
+
+/*123 điện thoại */
+
+#content .members-list {
+    margin: 48px 0;
+}
+
+#content .member-item {
+    text-align: center;
+    float: left;
+    /* width: 33.333%; */
+    width: calc(100%/4);
+}
+
+#content .member-name {
+    text-transform: uppercase;
+}
+
+#content .member-img {
+    width: 300px;
+    height: 300px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+#content .tour-section {
+    background-color: #000;
+}
+
+
+/* tour section */
+
+#content .content-section1 {
+    padding: 64px 0;
+    font-size: 16px;
+    height: 950px;
+}
+
+#content .section-heading1 {
+    text-align: center;
+    margin: 10px 0;
+    color: #fff;
+}
+
+#content .section-sub-heading1 {
+    text-align: center;
+    margin-bottom: 50px;
+    opacity: 0.76;
+    font-style: italic;
+    color: #fff;
+}
+
+
+/* ticket list */
+
+.tickets-list {
+    background-color: #fff;
+    margin: 0 250px;
+    padding: 55px 44px;
+    list-style: none;
+}
+
+.tickets-list li {
+    padding: 7px 16px;
+    border: 1px solid #ccc;
+}
+
+.tour-section .sold-out {
+    padding: 5px;
+    background-color: rgb(208, 71, 71);
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.tour-section .quantity {
+    float: right;
+    padding: 5px 7px;
+    margin-top: -5px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #000;
+    ;
+}
+
+#content .places-list {}
+
+#content .place-item {
+    float: left;
+    width: 33.333333%;
+    padding: 0 10px;
+    padding-bottom: 75px;
+    margin: 50px 0;
+    background-color: #fff;
+}
+
+#content .place-img {
+    width: 100%;
+}
+
+#content .place-body {
+    line-height: 25px;
+    padding-bottom: 50px;
+    background-color: rgb(142, 166, 88);
+}
+
+#content .place-heading {
+    margin: 15px 25px;
+}
+
+#content .place-time {
+    margin: 0 25px;
+}
+
+#content .place-desc {
+    margin: 0 25px;
+}
+
+#content .place-buy-btn {
+    margin: 0 25px;
+    padding: 5px;
+    text-decoration: none;
+    background-color: red;
+    cursor: pointer;
+    line-height: 50px;
+}
+
+#content .place-buy-btn:hover {
+    opacity: 0.8;
+}
+
+
+/* phần 44444444 */
+
+#footer {}
+
+.list-ket {}
+
+.img-ket {
+    background: url(https://image.thanhnien.vn/1200x630/Uploaded/2023/ngtnth/2021_08_13/dongduc-15_teuf.jpg);
+    height: 600px;
+    width: 1600px;
+}
+
+.icon-ket {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
